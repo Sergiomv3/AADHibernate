@@ -1,0 +1,64 @@
+body{
+    background: #252529;
+    font-family:sans-serif;
+}
+
+.flexslider{
+    width: 48%;
+    float: right;
+}
+
+#mostrar{
+    width: 48%;
+    float: left;
+}
+
+h1{
+    font-size: 3em;
+    color: #f5f4e2;
+    font-weight: bold;
+}
+
+h2{
+    font-size: 2em;
+    color: #c43024;
+}
+
+.cuerpo{
+    width: 400px;
+    margin: 0 auto;
+}
+.cabecera{
+    width: 100%;
+    text-align: center;
+}
+
+.botones{
+    margin-top: 6%;
+    text-align: center;
+}
+
+.botones a, td a{
+    text-decoration: none;
+}
+
+
+.tabla{
+    text-align: center;
+    background-color: #fcfded;
+    margin:0px;
+    padding:0px;
+	width:100%;
+    border:1px solid #000000;
+}
+.tabla table{
+     border-collapse: collapse;
+        border-spacing: 0;
+	width:100%;
+	height:100%;
+	margin:0px;padding:0px;
+}
+a{
+    font-size: 1.2em;
+    font-weight: bold;
+}
