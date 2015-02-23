@@ -2,13 +2,14 @@ package com.sergio.modelo;
 
 import com.sergio.hibernate.NewHibernateUtil;
 import com.sergio.hibernate.Inmueble;
+import java.math.BigInteger;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
 public class ModeloInmueble {
     
-    public ModeloInmueble(){
+     public ModeloInmueble(){
     }
     
     public static List<Inmueble> get() {
@@ -59,20 +60,21 @@ public class ModeloInmueble {
         session.close();
     }
     
-    public static void insert(Inmueble inmueble){   
+    public static long insert(Inmueble inmueble){   
         Session session = NewHibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         session.save(inmueble); 
+        Long lastId = ((BigInteger) session.createSQLQuery("SELECT LAST_INSERT_ID()").uniqueResult()).longValue();
         session.close();
+        return lastId;
     }
     
     public static void update(Inmueble inmueble){
         Session session = NewHibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         session.update(inmueble);
-
         session.getTransaction().commit();
         session.flush();
         session.close();
-    }
+}
 }

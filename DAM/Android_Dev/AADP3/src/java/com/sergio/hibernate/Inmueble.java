@@ -1,6 +1,15 @@
 package com.sergio.hibernate;
 // Generated 02-feb-2015 20:57:34 by Hibernate Tools 4.3.1
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+
+
+
+
 
 
 /**
@@ -28,7 +37,24 @@ public class Inmueble  implements java.io.Serializable {
        this.precio = precio;
        this.usuario = usuario;
     }
-   
+    public Inmueble(JSONObject json){
+        
+         try {
+             this.calle = json.getString("calle");
+             this.numero = json.getString("numero");
+        this.localidad = json.getString("localidad");
+        this.tipo = json.getString("tipo");
+        try{
+            this.precio = Integer.parseInt(json.getString("precio"));
+        } catch(NumberFormatException e){
+            precio = 0;
+        }
+        this.usuario = json.getString("usuario");
+         } catch (JSONException ex) {
+             Logger.getLogger(Inmueble.class.getName()).log(Level.SEVERE, null, ex);
+         }
+        
+    }
     public Integer getId() {
         return this.id;
     }
